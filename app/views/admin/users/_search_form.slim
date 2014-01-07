@@ -1,0 +1,42 @@
+a href='javascript:void(0)' data-toggle="collapse" data-target="#searchForm" Filter
+#searchForm.accordion-body.collapse 
+  = simple_form_for [:admin, @user], :method => :get, html: {class: 'form-horizontal'} do |f|
+    .input-prepend
+      = f.label :name
+      .controls
+        = f.text_field :name
+    .input-append
+      = f.label :email
+      .controls
+        = f.text_field :email
+    .input-append
+      = f.label :phone
+      .controls
+        = f.text_field :phone
+    .input-append
+      = f.label :qq
+      .controls
+        = f.text_field :qq
+    .input-append
+      = f.label :current_sign_in_ip
+      .controls
+        = f.text_field :current_sign_in_ip
+    .input-append
+      = f.label :is_mac
+      .controls
+        = f.text_field :is_mac
+    .input-append
+      = f.label :game_type
+      .controls
+        = f.text_field :game_type
+    .input-append
+      = f.label '开始时间'
+      .controls
+        = f.text_field :created_at
+    .input-append
+      = f.label '结束时间'
+      .controls
+        = f.text_field :expire_date
+    .form-actions
+      = f.submit '搜索',{:class => 'btn btn-primary'}
+

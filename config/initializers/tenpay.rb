@@ -1,0 +1,2 @@
+JaslTenpay.pid = ''
+JaslTenpay.key = ''

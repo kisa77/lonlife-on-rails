@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong User:
+  = @action_log.user_id
+p
+  strong Target user:
+  = @action_log.target_user
+p
+  strong Do user:
+  = @action_log.do_user
+p
+  strong Infomation:
+  = @action_log.information
+p
+  strong Log type:
+  = @action_log.log_type
+p
+  strong Description:
+  = @action_log.description
+
+= link_to 'Edit', edit_admin_action_log_path(@action_log)
+'|
+= link_to 'Back', admin_action_logs_path

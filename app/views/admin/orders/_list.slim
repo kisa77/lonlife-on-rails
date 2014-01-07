@@ -1,0 +1,32 @@
+div.list
+  table.table.table-hover
+    tr
+      th Email
+      th Order
+      th Amount
+      th Balance
+      th Days
+      th Game
+      th Pay bank
+      th Status
+      th
+      th
+      th
+
+    - @orders.each do |order|
+      tr
+        td = order.email
+        td = order.order_id
+        td = order.receiver
+        td = order.amount
+        td = order.balance
+        td = order.days
+        td = order.game_id
+        td = order.pay_bank
+        td = order.status
+        td = link_to 'Show', admin_order_path(order)
+        td = link_to 'Edit', edit_admin_order_path(order)
+        td = link_to 'Destroy', admin_order_path(order), data: {:confirm => 'Are you sure?'}, :method => :delete
+
+  br
+

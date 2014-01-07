@@ -1,0 +1,21 @@
+= simple_form_for([:admin, @order]) do |f|
+  /= f.error_notification
+
+  .form-inputs
+    = f.input :email
+    = f.input :user_id
+    = f.input :order_id
+    = f.input :status
+    = f.input :receiver
+    = f.input :amount
+    = f.input :balance
+    = f.input :days
+    = f.input :game_id
+    = f.input :product_id
+    = f.input :lottery_code
+    = f.input :coupon
+    = f.input :pay_bank
+    = f.input :card_type
+
+  .form-actions
+    = f.button :submit

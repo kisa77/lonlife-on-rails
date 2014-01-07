@@ -1,0 +1,9 @@
+div.page-header
+  h1 Listing orders
+
+ul.nav.nav-tabs
+  li.active
+    = link_to 'List', admin_orders_path
+  li
+    = link_to 'New Order', new_admin_order_path
+= render 'list'

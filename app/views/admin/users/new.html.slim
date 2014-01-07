@@ -1,0 +1,10 @@
+div.page-header
+  h1 New user
+
+ul.nav.nav-tabs
+  li
+    = link_to 'List', admin_users_path
+  li.active
+    = link_to 'New User', new_admin_user_path
+== render 'form'
+

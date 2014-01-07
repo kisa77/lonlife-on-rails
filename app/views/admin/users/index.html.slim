@@ -1,0 +1,72 @@
+div.page-header
+  h1 Listing users
+
+ul.nav.nav-tabs
+  li.active
+    = link_to 'List', admin_users_path
+  li
+    = link_to 'New User', new_admin_user_path
+div.search
+  div.well
+    = render 'search_form'
+div.list
+  table.table.table-hover
+    tr
+      th ID
+      th 会员信息
+      th 时间
+      th 联系信息
+      th.span4 操作记录
+      th 注册类型
+
+    - @users.each do |user|
+      tr
+        td
+          = link_to "#{user.id} | 编辑", edit_admin_user_path(user)
+        td
+          span.text-success 用户名: 
+          = user.name
+          br
+          span.text-success 游戏类型: 
+          = user.game_type
+          br
+          span.text-success IP:
+          = user.current_sign_in_ip
+        td
+          span.text-success 开户: 
+          = user.created_at
+          br
+          span.text-success 到期: 
+          = user.expire_date
+        td
+          span.text-success 手机: 
+          = user.phone
+          br
+          span.text-success QQ: 
+          = user.qq
+          br
+          span.text-success E-mail: 
+          = user.email
+        td.span4
+          - last_action_log = user.action_logs.where(log_type: ActionLog::LOG_TYPE_ACTION).last
+          - if last_action_log.present?
+            = link_to last_action_log.information, show_my_log_admin_user_path(user), :remote => true, data:{uid: user.id}
+          /= user.action_logs.last.information if user.action_logs.last.present?
+        td
+          span.text-success 注册来源: 
+          = user.register_source
+        / = link_to 'Show', admin_user_path(user)
+        / = link_to 'Edit', edit_admin_user_path(user)
+        / = link_to 'Destroy', admin_user_path(user), data: {:confirm => 'Are you sure?'}, :method => :delete
+  = paginate @users
+
+#userLogContainer.modal.hide.fade tabindex="-1" role='dialog' aria-labelledby='myModalLabel'
+  .modal-header
+    button.close data-dismiss="modal" aria-hidden="true" X
+    h3#userLogTitle Title
+  .modal-body#userLogCont
+    p test text
+  .modal-footer
+    button.btn data-dismiss="modal" aria-hidden="true" 关闭
+    /button.btn.btn-primary Save
+

@@ -1,0 +1,12 @@
+= simple_form_for @order, html: {class: 'form-horizontal'}  do |f|
+  /= f.error_notification
+
+  .form-inputs
+    = f.input :product_id, label: '产品ID'
+    = f.input :quantity, as: 'integer', label: '数量'
+    = f.input :price, label: '单价'
+    = f.input :days, as: 'integer', label: '充值天数'
+    = f.input :pay_type, collection: { 支付宝:"alipay", 财付通:"tenpay"}, :as => :radio_buttons, label: '支付方式', checked: 'alipay'
+
+  .form-actions
+    = f.button :submit, 'Save'

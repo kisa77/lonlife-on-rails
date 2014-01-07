@@ -1,0 +1,63 @@
+= simple_form_for [:admin, @user], html: {class: 'form-horizontal'} do |f|
+  - if @user.errors.any?
+    #error_explanation.alert.alert-danger
+      h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      ul
+        - @user.errors.full_messages.each do |message|
+          li = message
+
+  .control-group
+    = f.label '用户名', class:'control-label'
+    .controls
+        = f.text_field :name
+  .control-group
+    = f.label '手机', class:'control-label'
+    .controls
+      = f.text_field :phone
+  .control-group
+    = f.label 'QQ', class:'control-label'
+    .controls
+      = f.text_field :qq
+  .control-group
+    = f.label '余额', class:'control-label'
+    .controls
+      = f.text_field :money
+  .control-group
+    = f.label '充值金额', class:'control-label'
+    .controls
+      = f.text_field :charge_money
+  .control-group
+    = f.label '扣除金额', class:'control-label'
+
+    .controls
+      = f.text_field :deduct_money
+  .control-group
+    = f.label '用户状态', class:'control-label'
+    .controls
+      = f.collection_select :is_pause, [0, 1], :to_s, :to_s
+  .control-group
+    = f.label '允许同时登陆数', class:'control-label'
+    .controls
+      = f.number_field :allow_client_number
+  .control-group
+    = f.label '到期时间', class:'control-label'
+    .controls
+      = f.date_select :expire_date
+  .control-group
+    = f.label '是否购买过', class:'control-label'
+    .controls
+      = f.collection_select :is_buy, [0, 1], :to_s, :to_s
+  .control-group
+    = f.label '游戏类型', class:'control-label'
+    .controls
+      = f.text_field :game_type
+  /.control-group
+    = f.label :role, class:'control-label'
+    .controls
+      = f.collection_select :role, User::ROLES, :to_s, :humanize
+  .control-group
+    = f.label '修改备注', class:'control-label'
+    .controls
+      = f.text_field :memo
+  div.form-actions
+    = f.submit 'Save',{:class => 'btn btn-primary'}

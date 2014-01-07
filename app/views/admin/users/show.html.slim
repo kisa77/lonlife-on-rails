@@ -1,0 +1,99 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @user.name
+p
+  strong Comment mode:
+  = @user.comment_mode
+p
+  strong Comment sort:
+  = @user.comment_sort
+p
+  strong Theme:
+  = @user.theme
+p
+  strong Signature:
+  = @user.signature
+p
+  strong Signature format:
+  = @user.signature_format
+p
+  strong Status:
+  = @user.status
+p
+  strong Timezone:
+  = @user.timezone
+p
+  strong Language:
+  = @user.language
+p
+  strong Picture:
+  = @user.picture
+p
+  strong Init email:
+  = @user.init_email
+p
+  strong Data:
+  = @user.data
+p
+  strong Phone:
+  = @user.phone
+p
+  strong Qq:
+  = @user.qq
+p
+  strong Expire date:
+  = @user.expire_date
+p
+  strong Expire days:
+  = @user.expire_days
+p
+  strong Expire time:
+  = @user.expire_time
+p
+  strong Introducer:
+  = @user.introducer
+p
+  strong Invite token:
+  = @user.invite_token
+p
+  strong Is verify email:
+  = @user.is_verify_email
+p
+  strong Is buy:
+  = @user.is_buy
+p
+  strong Money:
+  = @user.money
+p
+  strong Game type:
+  = @user.game_type
+p
+  strong Is pause:
+  = @user.is_pause
+p
+  strong Pause time:
+  = @user.pause_time
+p
+  strong Is mac:
+  = @user.is_mac
+p
+  strong Login success times:
+  = @user.login_success_times
+p
+  strong Login fail times:
+  = @user.login_fail_times
+p
+  strong Allow client number:
+  = @user.allow_client_number
+p
+  strong Is blocked:
+  = @user.is_blocked
+p
+  strong Register source:
+  = @user.register_source
+
+= link_to 'Edit', edit_admin_user_path(@user)
+'|
+= link_to 'Back', admin_users_path

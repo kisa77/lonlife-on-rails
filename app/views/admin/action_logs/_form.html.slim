@@ -1,0 +1,13 @@
+= simple_form_for(@action_log) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :user_id
+    = f.input :target_user
+    = f.input :do_user
+    = f.input :information
+    = f.input :log_type
+    = f.input :description
+
+  .form-actions
+    = f.button :submit

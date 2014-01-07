@@ -1,0 +1,6 @@
+- if current_user.present?
+  %h2
+    = current_user.email
+- else
+  %h4 
+    = link_to 'Please Login', new_user_session_url 
